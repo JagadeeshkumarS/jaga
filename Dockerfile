@@ -1,7 +1,5 @@
 FROM ubuntu
-RUN apt update
-RUN apt install -y apache2
-RUN apt install -y apache2-utils
-RUN apt clean
+RUN apt update -y
+RUN apt install nginx -y
 EXPOSE 80
-CMD [“apache2ctl”, “-D”, “FOREGROUND”]
+CMD ["nginx”, “-G”, “daemonoff”]
